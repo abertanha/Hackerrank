@@ -1,0 +1,7 @@
+function reverseArray(a) {
+    let temp = [];
+        for (let i = 0, j = (a.length - 1); i < a.length; i++, j--){
+            temp[i] = a[j];
+       }
+      return temp;
+}
