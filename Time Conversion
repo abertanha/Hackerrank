@@ -1,0 +1,16 @@
+function timeConversion(s) {
+    let amPm = s.charAt(8);
+    let militaryHour = s.slice(0, 8);
+    let firstTwoDigits = Number(militaryHour.substring(0, 2));
+        if (amPm === "A"){
+            if (s.substring(0, 2) === "12"){
+                militaryHour = "00" + militaryHour.slice(2,8);
+        }                        
+        }else if(amPm === "P"){
+            militaryHour = String(firstTwoDigits + 12) + militaryHour.slice(2, 8); 
+            if (s.substring(0, 2) === "12"){
+                militaryHour = s.slice(0, 8);                   
+        }
+    }
+    return (militaryHour);
+}
