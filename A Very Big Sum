@@ -1,0 +1,6 @@
+function aVeryBigSum(ar) {
+    let bigSum = 0;
+        for (let i = 0; i < ar.length; i++)
+            bigSum += ar[i]; //bigSum = bigSum + ar[i]
+    return (bigSum);
+}
