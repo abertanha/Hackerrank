@@ -1,0 +1,13 @@
+function compareTriplets(a, b) {
+    let pointsAlice = 0;
+    let pointsBob = 0;
+       for (let i = 0; i < 3; i++) {
+            if ( a[i] > b[i]){
+                pointsAlice += 1; //pointsAlice = pointsAlice + points
+            }else if (a[i] < b[i]) {
+                pointsBob += 1; //pointsBob = pointsBob + points
+            }else{ 
+            }
+        }      
+    return ([pointsAlice, pointsBob]) ;      
+}
