@@ -1,0 +1,15 @@
+function diagonalDifference(arr) {
+    let n = arr[0].length;
+    let leftToRight = 0;
+    let rightToLeft = 0;
+        for (let i = 0, j = n - 1; i < n; i++, j--) {
+            leftToRight += arr[i][i];
+            rightToLeft += arr[i][j];
+            }
+    if ((leftToRight - rightToLeft) > 0){
+        return (leftToRight - rightToLeft);        
+    }else {
+        return -1 * (leftToRight - rightToLeft);
+    }
+    return Math.abs(leftToRight - rightToLeft);
+}
