@@ -1,0 +1,10 @@
+function birthdayCakeCandles(candles) {
+    let tallest = Math.max(...candles);
+    let tallestSum = 0;
+    for (let i = 0; i < candles.length; i++){
+        if (candles[i] === tallest){
+            tallestSum++;
+        }
+    }
+    return tallestSum;
+}
