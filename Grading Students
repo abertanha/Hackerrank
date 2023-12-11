@@ -1,0 +1,19 @@
+int* gradingStudents(int grades_count, int grades[grades_count], int* result_count) 
+{
+    int cont;
+    
+    scanf("%d", &grades_count);
+    *result_count = grades_count;
+    
+    for (cont = 0;cont < grades_count; cont++) 
+    {    
+        scanf("%d", &grades[cont]);
+        if (grades[cont] % 5 >= 3 && grades[cont] >= 38) 
+        {
+            grades[cont] += (5-(grades[cont]%5));
+        }
+                               
+    }
+    return grades;
+    
+}
