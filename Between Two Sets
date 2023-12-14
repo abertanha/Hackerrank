@@ -1,0 +1,59 @@
+int getTotalX(int a_count, int* a, int b_count, int* b) 
+{
+    int c[100] ={0}, flag;
+	
+		for (int i = 0;i < 100;i++) 
+		{	
+			flag = 1;
+			for (int j = 0; j < a_count ;j++) 
+			{     
+				if ((i + 1)%a[j] != 0)
+				{
+					flag = 0;
+					break;
+				}	
+			}
+			if(flag == 1)
+			{
+				c[i] = i+1;
+			}
+        }
+		int c_count = sizeof(c)/sizeof(c[0]);
+		int NumCount = 0;
+		
+		for (int i = 0;i < c_count;i++) 
+		{     
+			flag = 1;
+            for (int j = 0; j < b_count ;j++) 
+			{     
+				if (c[i] != 0 && b[j]%c[i] != 0)
+				{
+					flag = 0;
+                    break;
+				}
+			}
+            if(c[i] != 0 && flag == 1)
+            {
+                NumCount++;
+            } 
+		}
+    return NumCount;
+}
+OR MORE EFFICIENT!
+int getTotalX(int a_count, int* a, int b_count, int* b) 
+{
+  int a_count = 2, a[2] = {2,4}, b_count = 3, b[3] = {16, 32, 96}; 
+  	
+  	int flag, NumCount = 0;
+  	
+  	for (int i = 1;i <= 100;i++) 
+  	{	
+  		flag = 1;
+  		for (int j = 0; j < (a_count > b_count ? a_count : b_count) && flag ;j++)     
+  			if ((j < b_count && b[j]%i != 0) || (j < a_count && i%a[j] != 0))
+  				flag = 0;
+  		if(flag == 1)
+  			NumCount++;
+  	}		
+  	return NumCount;
+}
