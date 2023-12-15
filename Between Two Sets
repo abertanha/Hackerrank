@@ -17,26 +17,27 @@ int getTotalX(int a_count, int* a, int b_count, int* b)
 			{
 				c[i] = i+1;
 			}
-        }
+        	}
 		int c_count = sizeof(c)/sizeof(c[0]);
 		int NumCount = 0;
 		
 		for (int i = 0;i < c_count;i++) 
 		{     
 			flag = 1;
-            for (int j = 0; j < b_count ;j++) 
+           		for (int j = 0; j < b_count ;j++) 
 			{     
 				if (c[i] != 0 && b[j]%c[i] != 0)
 				{
 					flag = 0;
-                    break;
+                    			break;
 				}
 			}
+		}
             if(c[i] != 0 && flag == 1)
             {
                 NumCount++;
             } 
-		}
+}
     return NumCount;
 }
 OR MORE EFFICIENT!
