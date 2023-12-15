@@ -1,0 +1,21 @@
+int* breakingRecords(int scores_count, int* scores, int* result_count) 
+{
+    int min = scores[0] ,max = scores[0]; 
+    static int MinMaxCount[] = {0,0};
+    *result_count = 2;
+    
+    for(int i = 0 ; i < scores_count; i++)
+    {
+        if (scores[i] > max)
+        {
+            max = scores[i];   
+            MinMaxCount[0]++;
+        }
+        if (scores[i] < min)
+        {
+            min = scores[i];
+            MinMaxCount[1]++;
+        }     
+    }
+    return MinMaxCount;
+}
