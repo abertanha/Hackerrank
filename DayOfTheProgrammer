@@ -1,0 +1,16 @@
+char* dayOfProgrammer(int year) 
+{
+    static char date[12];
+
+    if ((year > 1918 && (year%400 == 0 || (year%4 == 0 && year%100 != 0))) || (year < 1918 && year%4 == 0))
+    {
+        sprintf(date, "12.09.%d", year);
+        return date;
+    }   
+    if ((year > 1918 || year < 1918) && (year%4 != 0 || year%100 == 0))
+    {
+        sprintf(date, "13.09.%d", year);
+        return date;
+    }
+    return "26.09.1918";
+}
