@@ -1,0 +1,12 @@
+int pageCount(int n, int p) 
+{
+    int g = (p/2) + 1, G = (n/2) + 1;
+    
+    if ((g - 1) <= (G - g))
+        return g - 1;
+    else 
+    {
+        return G - g; 
+    }
+    return 0;
+}
