@@ -5,8 +5,5 @@ int pageCount(int n, int p)
     if ((g - 1) <= (G - g))
         return g - 1;
     else 
-    {
-        return G - g; 
-    }
-    return 0;
+        return G - g;
 }
