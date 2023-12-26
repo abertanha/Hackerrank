@@ -1,0 +1,16 @@
+int getMoneySpent(int keyboards_count, int* keyboards, int drives_count, int* drives, int b)
+{
+    int Max = -1;   
+    
+    for (int i = 0;i < keyboards_count; i++)
+    {    
+        for (int j = 0;j < drives_count; j++) 
+        {
+            int Soma = keyboards[i] + drives[j];
+            
+            if(Soma <= b && Soma > Max)
+                Max = Soma;
+        }
+    }
+    return Max;
+}
