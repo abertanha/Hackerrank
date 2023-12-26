@@ -1,0 +1,17 @@
+char* catAndMouse(int x, int y, int z) 
+{
+    int Ca = (x - z), Cb = (y - z);
+    static char Winner[8];
+    
+    if (Ca < 0)
+        Ca *= -1;
+    if (Cb < 0)
+        Cb *= -1;
+    if(Ca < Cb) 
+        sprintf(Winner, "Cat A");
+    if(Cb < Ca) 
+        sprintf(Winner, "Cat B");
+    if(Ca == Cb)
+        sprintf(Winner, "Mouse C");
+    return Winner;
+}
