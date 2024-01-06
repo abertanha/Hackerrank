@@ -1,0 +1,50 @@
+int BinarySearch (int* vetor, int chave, int inicio, int fim)
+{
+    int meio;
+    //printf("%d\t %d\t %d\n", inicio, fim, chave);
+    if (inicio <= fim)
+    {
+        meio = (inicio+fim)/2;
+        if (chave == vetor[meio]) 
+            return meio;
+        else 
+        {
+            if (chave < vetor[meio]) 
+                return meio + 1 > fim ? inicio : BinarySearch(vetor, chave, meio + 1, fim);
+            else
+                return meio - 1 < inicio ? inicio : BinarySearch(vetor, chave, inicio, meio - 1);
+        }
+    }
+    return -1;
+}
+int* climbingLeaderboard(int ranked_count, int* ranked, int player_count, int* player, int* result_count) 
+{
+    *result_count = player_count;
+    int* Anwser = malloc(*result_count * sizeof(int));
+    int* rankAux = malloc(ranked_count * sizeof(int));
+    
+    //Constroi um array auxiliar com os ranks.
+    //printf("RankAux\n");
+    for (int i = 0; i < ranked_count; i++) 
+    {
+        rankAux[i] = 1;
+        if ((i - 1 >= 0) && (ranked[i-1] == ranked[i])) 
+            rankAux[i] = rankAux[i-1];
+        else
+            rankAux[i] = rankAux[i-1] + 1;
+        //printf("%d\t %d\n",i ,rankAux[i]);
+    }
+    //printf("Anwser\n");
+    for (int i = player_count - 1; i >= 0; i--)
+    { 
+        //printf("valores de i\n");
+        //printf("%d\n", i);
+        int j = BinarySearch(ranked, player[i], 0, ranked_count - 1);
+        if (player[i] < ranked[j])
+            Anwser[i] = rankAux[j] + 1;
+        else if (player[i] >= ranked[j])
+            Anwser[i] = rankAux[j];
+    }   
+    free(rankAux); //liberar memória do rankAux
+    return Anwser;
+}
