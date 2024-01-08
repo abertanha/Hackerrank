@@ -1,0 +1,17 @@
+int designerPdfViewer(int h_count, int* h, char* word) {
+   char Alphabet[26] = "abcdefghijklmnopqrstuvwxyz";
+   int Comp = strlen(word);
+   int Anwser[Comp]; 
+   
+   for (int i = 0; i < Comp; i++)
+       for (int j = 0; j < h_count ; j++)
+           if (word[i] == Alphabet[j]) Anwser[i] = h[j];
+ 
+   int a_count = sizeof(Anwser)/sizeof(Anwser[0]), max = 0;
+   
+   for (int i = 0 ; i < a_count; i++)
+       if(Anwser[i] > max)
+           max = Anwser[i];
+           
+    return Comp * max;
+}
