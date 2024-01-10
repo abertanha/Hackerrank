@@ -1,0 +1,12 @@
+char* angryProfessor(int k, int a_count, int* a) 
+{
+    int Early = 0;
+    for (int i = 0; i < a_count; i++)
+        if (a[i] <= 0 )
+            Early++;
+        
+    if (Early >= k)
+        return "NO";
+    else 
+        return "YES";
+}
