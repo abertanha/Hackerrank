@@ -1,0 +1,17 @@
+int beautifulDays(int i, int j, int k){
+    int ElemCounts = (j-i)+1;
+    int Elem[ElemCounts], aux, rev[ElemCounts], Anwser = 0; 
+    
+    for (int a = 0; a < ElemCounts; a++){
+        Elem[a] = i + a;
+        rev[a] = 0;
+        int Number = Elem[a];
+        while(Number != 0){
+            aux = Number % 10;
+            rev[a] = (rev[a]*10) + aux;
+            Number /= 10;
+        }
+        if (abs(Elem[a]-rev[a])%k == 0) Anwser++; 
+    }            
+    return Anwser;
+}
