@@ -1,0 +1,11 @@
+int viralAdvertising(int n) 
+{
+    int Shared = 0, People = 5;
+    for (int i = 0; i < n; i++) 
+    {
+        People /= 2;
+        Shared += People;
+        People *= 3;
+    }
+    return Shared;
+}
